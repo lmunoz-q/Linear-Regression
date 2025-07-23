@@ -7,7 +7,7 @@ path = "../ressources/data.csv"
 def create_theta(lst: list):
     file = "theta0_theta1.txt"
     with open(file, 'w') as f:
-        f.write(lst)
+        f.write(f"{lst[0]},{lst[1]}")
 
 
 def estimate_prices(km, theta0, theta1):
@@ -44,4 +44,4 @@ def train(path):
 
 
 if __name__ == "__main__":
-    train()
+    train(path)
