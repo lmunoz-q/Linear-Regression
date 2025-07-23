@@ -2,6 +2,16 @@ import pandas as pd
 
 
 path = "../ressources/data.csv"
+iterations = 1000000
+learning_rate = 0.0001
+
+
+def print_progress_bar(current, total, bar_length=30):
+    percent = current / total
+    filled_length = int(bar_length * percent)
+    bar = '#' * filled_length + '-' * (bar_length - filled_length)
+    print(f"\rTraining: [{bar}] {percent * 100:.1f}%", end="", flush=True)
+
 
 
 def create_theta(lst: list):
@@ -14,7 +24,7 @@ def estimate_prices(km, theta0, theta1):
     return theta0 + (theta1 * km)
 
 
-def train(path):
+def train(path, iterations, learning_rate):
     df = pd.read_csv(path)
     ret = []
     kms = df["km"].tolist()
@@ -22,11 +32,11 @@ def train(path):
     prices = df["price"].tolist()
     theta0 = 0
     theta1 = 0
-    learning_rate = 0.0001
-    iterations = 1000000
     len_kms = len(kms)
 
     for i in range(iterations):
+        if i % 1000 == 0 or i == iterations - 1:
+            print_progress_bar(i + 1, iterations)
         sum_error = 0
         sum_error_times_km = 0
         for x, y in zip(kms, prices):
@@ -44,4 +54,4 @@ def train(path):
 
 
 if __name__ == "__main__":
-    train(path)
+    train(path, iterations, learning_rate)

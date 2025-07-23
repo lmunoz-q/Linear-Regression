@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+from train import train
+from predict import predict
 
 path = "../ressources/data.csv"
 thetas = "theta0_theta1.txt"
 
 
-def main():
+def plot_graph(path, thetas):
     df = pd.read_csv(path)
     with open(thetas, 'r') as f:
         line = f.read()
@@ -24,8 +26,44 @@ def main():
     plt.title("Linear Regression")
     plt.legend()
     plt.grid(True)
-
     plt.show()
+
+
+def main():
+    while True:
+        print("\nMenu :")
+        print("1. Train a Model")
+        print("2. Predict a price")
+        print("3. Show graphic")
+        print("4. Mean Square Error")
+        print("5. Quit")
+        choice = input("Choose an option : ")
+
+        if choice == "1":
+            print("Enter number of iterations")
+            iterations = input()
+            try:
+                iterations = int(iterations)
+            except:
+                print("iterations must be an integer")
+                return
+            print("Enter the learning_rate")
+            learning_rate = input()
+            try:
+                learning_rate = float(learning_rate)
+            except:
+                print("learning_rate must be a float")
+            train(path, iterations, learning_rate)
+        elif choice == "2":
+            predict(thetas)
+        elif choice == "3":
+            plot_graph(path, thetas)
+        elif choice == "4";
+            evaluate_model(path, thetas)
+        elif choice == "5":
+            break
+        else:
+            print("Option invalide.")
 
 
 if __name__ == "__main__":
