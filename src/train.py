@@ -1,11 +1,20 @@
 import pandas as pd
 
 
+path = "../ressources/data.csv"
+
+
+def create_theta(lst: list):
+    file = "theta0_theta1.txt"
+    with open(file, 'w') as f:
+        f.write(lst)
+
+
 def estimate_prices(km, theta0, theta1):
     return theta0 + (theta1 * km)
 
 
-def train(path) -> list:
+def train(path):
     df = pd.read_csv(path)
     ret = []
     kms = df["km"].tolist()
@@ -29,6 +38,10 @@ def train(path) -> list:
             tmp_theta1 = learning_rate * (1 / len_kms) * sum_error_times_km
             theta0 = theta0 - tmp_theta0
             theta1 = theta1 - tmp_theta1
-    ret.appends(theta1)
-    ret.appends(theta0)
-    return ret
+    ret.append(theta0)
+    ret.append(theta1)
+    create_theta(ret)
+
+
+if __name__ == "__main__":
+    train()
