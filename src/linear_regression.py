@@ -58,7 +58,7 @@ def main():
             predict(thetas)
         elif choice == "3":
             plot_graph(path, thetas)
-        elif choice == "4";
+        elif choice == "4":
             evaluate_model(path, thetas)
         elif choice == "5":
             break
