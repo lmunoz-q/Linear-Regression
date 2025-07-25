@@ -13,7 +13,6 @@ def print_progress_bar(current, total, bar_length=30):
     print(f"\rTraining: [{bar}] {percent * 100:.1f}%", end="", flush=True)
 
 
-
 def create_theta(lst: list):
     file = "theta0_theta1.txt"
     with open(file, 'w') as f:
@@ -33,6 +32,9 @@ def train(path, iterations, learning_rate):
     theta0 = 0
     theta1 = 0
     len_kms = len(kms)
+    if len_kms != len(prices):
+        print("The data.csv must contain same lenght of data")
+        return
 
     for i in range(iterations):
         if i % 1000 == 0 or i == iterations - 1:
