@@ -26,9 +26,9 @@ def predict(path):
     x = input()
     try:
         x = float(x)
-    except:
+    except Exception as e:
         print("Mileage value must be a number")
-        return
+        return e
     with open(path, 'r') as f:
         line = f.read()
         theta0, theta1 = map(float, line.strip().split(','))

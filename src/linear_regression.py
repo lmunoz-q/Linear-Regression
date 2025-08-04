@@ -47,12 +47,13 @@ def evaluate_model(path, thetas):
         mse = total_squared_error / m
         rmse = math.sqrt(mse)
 
-        print(f"\nModel Evaluation:")
+        print("\nModel Evaluation:")
         print(f" - Mean Squared Error (MSE): {mse:.2f}")
         print(f" - Root Mean Squared Error (RMSE): {rmse:.2f} €")
 
     except Exception as e:
         print(f"Error during evaluation: {e}")
+
 
 def plot_graph(path, thetas):
     """
@@ -119,15 +120,16 @@ def main():
             iterations = input()
             try:
                 iterations = int(iterations)
-            except:
+            except Exception as e:
                 print("iterations must be an integer")
-                return
+                return e
             print("Enter the learning_rate")
             learning_rate = input()
             try:
                 learning_rate = float(learning_rate)
-            except:
+            except Exception as e:
                 print("learning_rate must be a float")
+                return e
             if learning_rate <= 0 or learning_rate > 1:
                 print("Invalid learning rate, Using default: 0.0001")
                 learning_rate = 0.0001
