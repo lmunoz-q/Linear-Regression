@@ -4,6 +4,24 @@ path = "theta0_theta1.txt"
 
 
 def predict(path):
+    """
+    Predicts the price of a car based on user-input mileage using a
+    linear regression model.
+
+    Parameters:
+        path (str): Path to the file containing trained
+        theta0 and theta1 values.
+
+    Behavior:
+        - Prompts the user to input a mileage value.
+        - Loads the thetas from the file.
+        - Uses the regression formula to estimate the price.
+        - Displays the predicted price in euros.
+
+    Notes:
+        - Mileage should be entered in kilometers.
+        - The model assumes mileage normalization by dividing by 1000.
+    """
     print("Enter a mileage value")
     x = input()
     try:
