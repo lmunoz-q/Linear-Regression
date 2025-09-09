@@ -1,6 +1,8 @@
 # Linear Regression (ft_linear_regression)
 
-🎉 Final Score: **125/100**
+```diff
++ 🎉 Final Score: **125/100**
+```
 
 ## 📌 Project Overview
 
