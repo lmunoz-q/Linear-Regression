@@ -78,7 +78,8 @@ Then choose:
 
 Below is a visual representation (GIF) of how gradient descent progressively adjusts the regression line:
 
-![Gradient Descent in Action](https://upload.wikimedia.org/wikipedia/commons/2/2d_multiple_linear_regression.gif)
+![Gradient Descent in Action](https://upload.wikimedia.org/wikipedia/commons/e/e0/Gradient_descent.gif)
+
 
 ---
 
