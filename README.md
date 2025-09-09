@@ -1,9 +1,8 @@
 # Linear Regression (ft_linear_regression)
 
 ```diff
-+ 🎉 Final Score: **125/100**
++ Final Score: 125/100
 ```
-
 ## 📌 Project Overview
 
 This project implements a **simple linear regression algorithm from scratch** using:
